@@ -33,12 +33,12 @@ Tips:
       if (typeof sizeInBytes === 'number' && sizeInBytes > 0) {
         if (sizeInBytes < 1024)
           return `${sizeInBytes} bytes`
-        else if (sizeInBytes < 1048576)
-          return `${sizeInBytes / 1024} KB`
-        else if (sizeInBytes < 1048576 * 1024)
-          return `${sizeInBytes / 1048576} MB`
-        else if (sizeInBytes < 1048576 * 1048576)
-          return `${sizeInBytes / 1048576 / 1024} GB`
+        else if (sizeInBytes < 1024 ** 2)
+          return `${(sizeInBytes / 1024).toFixed(2)} KB`
+        else if (sizeInBytes < 1024 ** 3)
+          return `${(sizeInBytes / 1024 ** 2).toFixed(2)} MB`
+        else if (sizeInBytes < 1024 ** 4)
+          return `${(sizeInBytes / 1024 ** 3).toFixed(2)} GB`
         return '数字太大'
       }
       return '请输入大于 0 的数字'
