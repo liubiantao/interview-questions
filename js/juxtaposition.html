@@ -23,17 +23,20 @@ Tips:
 2. 良好的 commit history 也是 coding 能力的体现。
 -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <title>Juxtaposition</title>
-  </head>
-  <body>
-    <script>
-      function juxt(fns) {
-        // TODO
-      }
 
-      console.log(`${juxt([x=>x.toUpperCase(), x=>x.length])('hello')} == ['HELLO', 5]`)
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Juxtaposition</title>
+</head>
+
+<body>
+  <script>
+    function juxt(fns) {
+      return x => (fns || []).map(f => f(x))
+    }
+
+    console.log(`${juxt([x=>x.toUpperCase(), x=>x.length])('hello')} == ['HELLO', 5]`)
+  </script>
+</body>
+
 </html>
