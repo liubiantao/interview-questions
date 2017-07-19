@@ -35,11 +35,13 @@ def md5(s):
 
 
 def cache(f):
-    # reference: https://stackoverflow.com/questions/1988804/what-is-memoization-and-how-can-i-use-it-in-python
+    # reference:
+    #  https://stackoverflow.com/questions/1988804/what-is-memoization-and-how-can-i-use-it-in-python
+    # https://wiki.python.org/moin/HowTo/Sorting
     def wrapper(*args):
-        key = md5(str(args))
+        key = md5(str(sorted(args)))
         if not key in _cache_db:
-            print(key)
+            # print(args, key)
             _cache_db[key] = f(*args)
         return _cache_db[key]
     return wrapper
