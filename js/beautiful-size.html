@@ -30,10 +30,11 @@ Tips:
 <body>
   <script>
     function calc(sizeInBytes) {
-      if (typeof sizeInBytes === 'number') {
+      if (typeof sizeInBytes === 'number' && sizeInBytes > 0) {
+
         return 'size'
       }
-      return '请输入数字'
+      return '请输入大于 0 的数字'
     }
 
     console.log(calc(2048)) // 2 KB
