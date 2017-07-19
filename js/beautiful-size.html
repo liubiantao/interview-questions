@@ -31,8 +31,15 @@ Tips:
   <script>
     function calc(sizeInBytes) {
       if (typeof sizeInBytes === 'number' && sizeInBytes > 0) {
-
-        return 'size'
+        if (sizeInBytes < 1024)
+          return `${sizeInBytes} bytes`
+        else if (1024 <= sizeInBytes < 1048576)
+          return `${sizeInBytes / 1024} KB`
+        else if (1048576 <= sizeInBytes < 1048576 * 1024)
+          return `${sizeInBytes / 1048576} MB`
+        else if (1048576 * 1024 <= sizeInBytes < 1048576 * 1048576)
+          return `${sizeInBytes / 1048576 / 1024} GB`
+        return '数字太大'
       }
       return '请输入大于 0 的数字'
     }
