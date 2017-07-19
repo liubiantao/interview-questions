@@ -35,7 +35,14 @@ def md5(s):
 
 
 def cache(f):
-    pass
+    # reference: https://stackoverflow.com/questions/1988804/what-is-memoization-and-how-can-i-use-it-in-python
+    def wrapper(*args):
+        key = md5(str(args))
+        if not key in _cache_db:
+            print(key)
+            _cache_db[key] = f(*args)
+        return _cache_db[key]
+    return wrapper
 
 
 @cache
