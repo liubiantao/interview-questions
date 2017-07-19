@@ -23,16 +23,22 @@ Tips:
 -->
 
 <html>
+
 <head>
 </head>
+
 <body>
   <script>
-  function calc(sizeInBytes) {
-      return 'size'
-  }
+    function calc(sizeInBytes) {
+      if (typeof sizeInBytes === 'number') {
+        return 'size'
+      }
+      return '请输入数字'
+    }
 
-  console.log(calc(2048))  // 2 KB
-  console.log(calc(3))  // 3 bytes
+    console.log(calc(2048)) // 2 KB
+    console.log(calc(3)) // 3 bytes
   </script>
 </body>
+
 </html>
